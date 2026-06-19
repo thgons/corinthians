@@ -1,0 +1,434 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS
+   ========================================================================== */
+:root {
+    --cor-principal: #0a0a0a;
+    --cor-secundaria: #ffffff;
+    --cor-cinza-escuro: #161616;
+    --cor-cinza-medio: #2d2d2d;
+    --cor-cinza-claro: #ededed;
+    --cor-detalhe: #8a8a8a;
+    --cor-sombra: rgba(0, 0, 0, 0.5);
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --transicao: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-principal);
+    color: var(--cor-secundaria);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. NAVBAR
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(10, 10, 10, 0.95);
+    border-bottom: 1px solid var(--cor-cinza-medio);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 5%;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-main {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.logo-sub {
+    font-size: 0.75rem;
+    color: var(--cor-detalhe);
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-top: -4px;
+}
+
+.nav-links a {
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: var(--transicao);
+}
+
+.nav-links a:hover {
+    color: var(--cor-detalhe);
+}
+
+.nav-links .btn-suporte-nav {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.nav-links .btn-suporte-nav:hover {
+    background-color: var(--cor-cinza-claro);
+    color: var(--cor-principal);
+}
+
+/* ==========================================================================
+   3. HERO SECTION (HOME)
+   ========================================================================== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 1rem;
+    background: radial-gradient(circle at center, #1c1c1c 0%, #0a0a0a 100%);
+    position: relative;
+}
+
+/* Efeito visual tecnológico de fundo sem usar JS */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin-top: 60px;
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 0.2rem;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    font-weight: 900;
+    padding: 0.3rem 2rem;
+    font-size: 1.2rem;
+    letter-spacing: 8px;
+    margin-bottom: 1.5rem;
+    text-indent: 8px; /* Centraliza melhor devido ao letter-spacing */
+}
+
+.hero-tagline {
+    font-size: 1.1rem;
+    color: var(--cor-detalhe);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+}
+
+.btn-hero {
+    display: inline-block;
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    border: 2px solid var(--cor-secundaria);
+    padding: 0.8rem 2.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transicao);
+}
+
+.btn-hero:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   4. SEÇÃO DE SERVIÇOS
+   ========================================================================== */
+.services-section {
+    padding: 7rem 5%;
+    background-color: var(--cor-cinza-escuro);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-title h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.section-title h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--cor-secundaria);
+    margin: 0.5rem auto 0 auto;
+}
+
+.section-title p {
+    color: var(--cor-detalhe);
+    font-size: 1.1rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+}
+
+.service-card {
+    background-color: var(--cor-principal);
+    border: 1px solid var(--cor-cinza-medio);
+    padding: 3rem 2rem;
+    border-radius: 4px;
+    transition: var(--transicao);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito Interativo Sem JS (Hover CSS Avançado) */
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 10px 30px var(--cor-sombra);
+}
+
+.service-card.highlighted {
+    border: 1px solid var(--cor-detalhe);
+    background: linear-gradient(145deg, #0a0a0a 0%, #1c1c1c 100%);
+}
+
+.service-card.highlighted:hover {
+    border-color: var(--cor-secundaria);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.service-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.service-card p {
+    color: #aaa;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   5. SEÇÃO SOBRE NÓS
+   ========================================================================== */
+.about-section {
+    padding: 7rem 5%;
+    background-color: var(--cor-principal);
+    border-top: 1px solid var(--cor-cinza-medio);
+}
+
+.about-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-text h2 {
+    font-size: 2.3rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+.diferenciais-list {
+    list-style: none;
+}
+
+.diferenciais-list li {
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.diferenciais-list li::before {
+    content: "▪";
+    position: absolute;
+    left: 0;
+    color: var(--cor-secundaria);
+    font-size: 1.5rem;
+    top: -4px;
+}
+
+/* ==========================================================================
+   6. SEÇÃO SUPORTE E CONTATO
+   ========================================================================== */
+.support-section {
+    padding: 7rem 5%;
+    background-color: var(--cor-cinza-escuro);
+    border-top: 1px solid var(--cor-cinza-medio);
+}
+
+.support-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.support-container h2 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.support-container > p {
+    color: var(--cor-detalhe);
+    margin-bottom: 4rem;
+    font-size: 1.1rem;
+}
+
+.support-box {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--cor-principal);
+    border: 1px solid var(--cor-cinza-medio);
+    border-radius: 4px;
+    text-align: left;
+}
+
+.support-info, .support-action {
+    flex: 1;
+    min-width: 280px;
+    padding: 3rem;
+}
+
+.support-info {
+    border-right: 1px solid var(--cor-cinza-medio);
+}
+
+.support-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+.support-info p {
+    margin-bottom: 1rem;
+    color: #ccc;
+}
+
+.support-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.support-action p {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-suporte {
+    display: inline-block;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-principal);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: var(--transicao);
+}
+
+.btn-suporte:hover {
+    background-color: var(--cor-detalhe);
+    color: var(--cor-secundaria);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+footer {
+    background-color: var(--cor-principal);
+    padding: 2rem 5%;
+    text-align: center;
+    border-top: 1px solid var(--cor-cinza-medio);
+    font-size: 0.85rem;
+    color: var(--cor-detalhe);
+}
+
+/* ==========================================================================
+   8. RESPONSIVIDADE
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        margin-top: 1rem;
+    }
+    
+    .nav-links a {
+        margin: 0 0.5rem;
+        font-size: 0.85rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .support-info {
+        border-right: none;
+        border-bottom: 1px solid var(--cor-cinza-medio);
+    }
+}
